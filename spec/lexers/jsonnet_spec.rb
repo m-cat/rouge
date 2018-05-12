@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Jsonnet do
-  let(:subject) { Rouge::Lexers::Jsonnet.new }
+describe RougeLines::Lexers::Jsonnet do
+  let(:subject) { RougeLines::Lexers::Jsonnet.new }
 
   describe 'guessing' do
     include Support::Guessing

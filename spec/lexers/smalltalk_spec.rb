@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Smalltalk do
-  let(:subject) { Rouge::Lexers::Smalltalk.new }
+describe RougeLines::Lexers::Smalltalk do
+  let(:subject) { RougeLines::Lexers::Smalltalk.new }
 
   describe 'guessing' do
     include Support::Guessing

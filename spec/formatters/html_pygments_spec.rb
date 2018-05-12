@@ -1,8 +1,8 @@
-describe Rouge::Formatters::HTMLPygments do
-  let(:formatter) { Rouge::Formatters::HTML.new }
+describe RougeLines::Formatters::HTMLPygments do
+  let(:formatter) { RougeLines::Formatters::HTML.new }
   let(:source) { 'echo "Hello World"' }
-  let(:lexer) { Rouge::Lexers::Shell.new }
-  let(:subject) { Rouge::Formatters::HTMLPygments.new(formatter, lexer.tag) }
+  let(:lexer) { RougeLines::Lexers::Shell.new }
+  let(:subject) { RougeLines::Formatters::HTMLPygments.new(formatter, lexer.tag) }
   let(:output) { subject.format(lexer.lex(source)) }
 
   it 'wrap with div.highlight' do

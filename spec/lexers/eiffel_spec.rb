@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Eiffel do
-  let(:subject) { Rouge::Lexers::Eiffel.new }
+describe RougeLines::Lexers::Eiffel do
+  let(:subject) { RougeLines::Lexers::Eiffel.new }
 
   describe 'guessing' do
     include Support::Guessing

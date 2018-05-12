@@ -1,5 +1,5 @@
-describe Rouge::Lexers::Apache do
-  let(:subject) { Rouge::Lexers::Apache.new }
+describe RougeLines::Lexers::Apache do
+  let(:subject) { RougeLines::Lexers::Apache.new }
 
   describe 'guessing' do
     include Support::Guessing

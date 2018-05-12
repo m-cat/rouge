@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::YAML do
-  let(:subject) { Rouge::Lexers::YAML.new }
+describe RougeLines::Lexers::YAML do
+  let(:subject) { RougeLines::Lexers::YAML.new }
 
   describe 'guessing' do
     include Support::Guessing

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Nginx do
-  let(:subject) { Rouge::Lexers::Nginx.new }
+describe RougeLines::Lexers::Nginx do
+  let(:subject) { RougeLines::Lexers::Nginx.new }
 
   describe 'guessing' do
     include Support::Guessing

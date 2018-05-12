@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Theme do
+describe RougeLines::Theme do
   def squish(str)
     str.strip.gsub(/\s+/, ' ')
   end
 
-  class MyTheme < Rouge::CSSTheme
+  class MyTheme < RougeLines::CSSTheme
     style Literal::String, :fg => '#003366', :bold => true
     style Literal::String::Backtick, :fg => '#555555', :italic => true
   end
@@ -24,7 +24,7 @@ describe Rouge::Theme do
   end
 
   it 'renders a style' do
-    output = Rouge::Theme::Style[:bold => true].render('.foo')
+    output = RougeLines::Theme::Style[:bold => true].render('.foo')
     expected = <<-css
       .foo {
         font-weight: bold;
@@ -35,17 +35,17 @@ describe Rouge::Theme do
   end
 
   it 'fetches a style for a token' do
-    style = theme.style_for(Rouge::Token['Literal.String'])
+    style = theme.style_for(RougeLines::Token['Literal.String'])
     assert { style == { :fg => '#003366', :bold => true } }
   end
 
   it 'fetches a the closest style for a token' do
-    style = theme.style_for(Rouge::Token['Literal.String.Backtick'])
+    style = theme.style_for(RougeLines::Token['Literal.String.Backtick'])
     assert { style == { :fg => '#555555', :italic => true } }
   end
 
   it 'fetches style from ancestor token when no style is defined' do
-    style = theme.style_for(Rouge::Token['Literal.String.Char'])
+    style = theme.style_for(RougeLines::Token['Literal.String.Char'])
     assert { style == { :fg => '#003366', :bold => true } }
   end
 end

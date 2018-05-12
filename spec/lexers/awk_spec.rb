@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Awk do
-  let(:subject) { Rouge::Lexers::Awk.new }
+describe RougeLines::Lexers::Awk do
+  let(:subject) { RougeLines::Lexers::Awk.new }
 
   describe 'lexing' do
     include Support::Lexing

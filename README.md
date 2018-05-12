@@ -1,11 +1,11 @@
-# Rouge
+# RougeLines
 
 [![Build Status](https://secure.travis-ci.org/jneen/rouge.svg)](http://travis-ci.org/jneen/rouge)
 [![Gem Version](https://badge.fury.io/rb/rouge.svg)](http://badge.fury.io/rb/rouge)
 
 [rouge]: http://rouge.jneen.net/
 
-[Rouge][] is a pure-ruby syntax highlighter.  It can highlight 100 different languages, and output HTML or ANSI 256-color text.  Its HTML output is compatible with stylesheets designed for [pygments][].
+[RougeLines][] is a pure-ruby syntax highlighter.  It can highlight 100 different languages, and output HTML or ANSI 256-color text.  Its HTML output is compatible with stylesheets designed for [pygments][].
 
 If you'd like to help out with this project, assign yourself something from the [issues][] page, and send me a pull request (even if it's not done yet!).  Bonus points for feature branches.
 
@@ -21,54 +21,54 @@ First, take a look at the [pretty colors][].
 ``` ruby
 # make some nice lexed html
 source = File.read('/etc/bashrc')
-formatter = Rouge::Formatters::HTML.new
-lexer = Rouge::Lexers::Shell.new
+formatter = RougeLines::Formatters::HTML.new
+lexer = RougeLines::Lexers::Shell.new
 formatter.format(lexer.lex(source))
 
 # Get some CSS
-Rouge::Themes::Base16.mode(:light).render(scope: '.highlight')
+RougeLines::Themes::Base16.mode(:light).render(scope: '.highlight')
 # Or use Theme#find with string input
-Rouge::Theme.find('base16.light').render(scope: '.highlight')
+RougeLines::Theme.find('base16.light').render(scope: '.highlight')
 ```
 
 ### Full options
 
 #### Formatters
 
-As of Rouge 2.0, you are encouraged to write your own formatter for custom formatting needs.
+As of RougeLines 2.0, you are encouraged to write your own formatter for custom formatting needs.
 Builtin formatters include:
 
-* `Rouge::Formatters::HTML.new` - will render your code with standard class names for tokens,
+* `RougeLines::Formatters::HTML.new` - will render your code with standard class names for tokens,
   with no div-wrapping or other bells or whistles.
-* `Rouge::Formatters::HTMLInline.new(theme)` - will render your code with no class names, but
+* `RougeLines::Formatters::HTMLInline.new(theme)` - will render your code with no class names, but
   instead inline the styling options into the `style=` attribute. This is good for emails and
   other systems where CSS support is minimal.
-* `Rouge::Formatters::HTMLLinewise.new(formatter, class_format: 'line-%i')`
+* `RougeLines::Formatters::HTMLLinewise.new(formatter, class_format: 'line-%i')`
   This formatter will split your code into lines, each contained in its own div. The
   `class_format` option will be used to add a class name to the div, given the line
   number.
-* `Rouge::Formatters::HTMLLineanchors.new(formatter, class_format: 'line-%i')` This formatter
+* `RougeLines::Formatters::HTMLLineanchors.new(formatter, class_format: 'line-%i')` This formatter
   will generate an anchor link before each line. The `class_format` option will be used to add
   a class name to the anchor, given the line number. This works the same as the `lineanchors`
   option in Pygments.
-* `Rouge::Formatters::HTMLPygments.new(formatter, css_class='codehilite')`
+* `RougeLines::Formatters::HTMLPygments.new(formatter, css_class='codehilite')`
   wraps the given formatter with div wrappers generally expected by stylesheets designed for
   Pygments.
-* `Rouge::Formatters::HTMLTable.new(formatter, opts={})` will output an HTML table containing
+* `RougeLines::Formatters::HTMLTable.new(formatter, opts={})` will output an HTML table containing
   numbered lines. Options are:
     * `start_line: 1` - the number of the first line
     * `line_format: '%i'` - a `sprintf` template for the line number itself
     * `table_class: 'rouge-table'` - a CSS class for the table
     * `gutter_class: 'rouge-gutter'` - a CSS class for the gutter
     * `code_class: 'rouge-code'` - a CSS class for the code column
-* `Rouge::Formatters::HTMLLegacy.new(opts={})` is a backwards-compatibility class intended
+* `RougeLines::Formatters::HTMLLegacy.new(opts={})` is a backwards-compatibility class intended
   for users of rouge 1.x, with options that were supported then. Options are:
     * `inline_theme: nil` - use an HTMLInline formatter with the given theme
     * `line_numbers: false` - use an HTMLTable formatter
     * `wrap: true` - use an HTMLPygments wrapper
     * `css_class: 'codehilite'` - a CSS class to use for the pygments wrapper
-* `Rouge::Formatters::Terminal256.new(theme)`
-  * `theme` must be an instnce of `Rouge::Theme`, or a `Hash` structure with `:theme` entry
+* `RougeLines::Formatters::Terminal256.new(theme)`
+  * `theme` must be an instnce of `RougeLines::Theme`, or a `Hash` structure with `:theme` entry
 
 #### Lexer options
 ##### debug: false
@@ -79,9 +79,9 @@ Allows you to specify which language the template is inside
 
 #### CSS theme options
 ##### scope: '.highlight'
-CSS selector that styles are applied to, e.g. `Rouge::Themes::MonokaiSublime.render(scope: 'code')`
+CSS selector that styles are applied to, e.g. `RougeLines::Themes::MonokaiSublime.render(scope: 'code')`
 
-Rouge aims to be simple to extend, and to be a drop-in replacement for pygments, with the same quality of output. Also, Rouge ships with a `rougify` command which allows you to easily highlight files in your terminal:
+RougeLines aims to be simple to extend, and to be a drop-in replacement for pygments, with the same quality of output. Also, RougeLines ships with a `rougify` command which allows you to easily highlight files in your terminal:
 
 ``` bash
 $ rougify foo.rb
@@ -93,9 +93,9 @@ $ rougify style monokai.sublime > syntax.css
 * We're faster in [almost every measure](https://github.com/jneen/rouge/pull/41#issuecomment-223751572)
 
 ### Advantages to CodeRay
-* The HTML output from Rouge is fully compatible with stylesheets designed for pygments.
+* The HTML output from RougeLines is fully compatible with stylesheets designed for pygments.
 * The lexers are implemented with a dedicated DSL, rather than being hand-coded.
-* Rouge supports every language CodeRay does and more.
+* RougeLines supports every language CodeRay does and more.
 
 ## You can even use it with Redcarpet
 
@@ -105,7 +105,7 @@ require 'rouge'
 require 'rouge/plugins/redcarpet'
 
 class HTML < Redcarpet::Render::HTML
-  include Rouge::Plugins::Redcarpet # yep, that's it.
+  include RougeLines::Plugins::Redcarpet # yep, that's it.
 end
 ```
 
@@ -113,14 +113,14 @@ If you have `:fenced_code_blocks` enabled, you can specify languages, and even o
 
 ## Encodings
 
-Rouge is only for UTF-8 strings.  If you'd like to highlight a string with a different encoding, please convert it to UTF-8 first.
+RougeLines is only for UTF-8 strings.  If you'd like to highlight a string with a different encoding, please convert it to UTF-8 first.
 
 ## Other integrations
 
 * Middleman: [middleman-syntax](https://github.com/middleman/middleman-syntax) (@bhollis)
 * Middleman: [middleman-rouge][] (@Linuus)
 * RDoc: [rdoc-rouge][] (@zzak)
-* Rouge::Rails: [render code samples in your rails views][rouge-rails] (@jacobsimeon)
+* RougeLines::Rails: [render code samples in your rails views][rouge-rails] (@jacobsimeon)
 
 [middleman-rouge]: https://github.com/Linuus/middleman-rouge
 [rdoc-rouge]: https://github.com/zzak/rdoc-rouge
@@ -134,7 +134,7 @@ If you're here to implement a lexer for your awesome language, there's a good ch
 
 ### Run the tests
 
-You can test the core of Rouge simply by running `rake` (no `bundle exec` required), or `rake spec TEST=spec/xxx_spec.rb`
+You can test the core of RougeLines simply by running `rake` (no `bundle exec` required), or `rake spec TEST=spec/xxx_spec.rb`
 to run a single test file.
 
 It's also set up with `guard`, if you like.
@@ -152,7 +152,7 @@ You can probably learn a lot just by reading through the existing lexers.  Basic
 Here's how you might use it:
 
 ``` ruby
-class MyLexer < Rouge::RegexLexer
+class MyLexer < RougeLines::RegexLexer
   state :root do
     # the "easy way"
 
@@ -234,4 +234,4 @@ I don't get paid to maintain rouge. If you've found this software useful, consid
 
 ## License
 
-Rouge is released under the MIT license. Please see the `LICENSE` file for more information.
+RougeLines is released under the MIT license. Please see the `LICENSE` file for more information.

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Handlebars do
-  let(:subject) { Rouge::Lexers::Handlebars.new }
+describe RougeLines::Lexers::Handlebars do
+  let(:subject) { RougeLines::Lexers::Handlebars.new }
 
   describe 'guessing' do
     include Support::Guessing

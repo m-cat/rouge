@@ -1,5 +1,5 @@
-describe Rouge::Lexers::Prometheus do
-  let(:subject) { Rouge::Lexers::Prometheus.new }
+describe RougeLines::Lexers::Prometheus do
+  let(:subject) { RougeLines::Lexers::Prometheus.new }
 
   describe 'guessing' do
     include Support::Guessing

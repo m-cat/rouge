@@ -1,9 +1,9 @@
-describe Rouge::Formatter do
+describe RougeLines::Formatter do
   it 'finds terminal256' do
-    assert { Rouge::Formatter.find('terminal256') }
+    assert { RougeLines::Formatter.find('terminal256') }
   end
 
-  it 'is found by Rouge.highlight' do
-    assert { Rouge.highlight('puts "Hello"', 'ruby', 'terminal256') }
+  it 'is found by RougeLines.highlight' do
+    assert { RougeLines.highlight('puts "Hello"', 'ruby', 'terminal256') }
   end
 end

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Jinja do
-  let(:subject) { Rouge::Lexers::Jinja.new }
+describe RougeLines::Lexers::Jinja do
+  let(:subject) { RougeLines::Lexers::Jinja.new }
 
   describe 'guessing' do
     include Support::Guessing

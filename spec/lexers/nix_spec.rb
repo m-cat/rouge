@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Nix do
-  let(:subject) { Rouge::Lexers::Nix.new }
+describe RougeLines::Lexers::Nix do
+  let(:subject) { RougeLines::Lexers::Nix.new }
 
   describe 'lexing' do
     include Support::Lexing

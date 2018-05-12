@@ -7,7 +7,7 @@ require 'rouge'
 require 'minitest/spec'
 require 'minitest/autorun'
 
-Token = Rouge::Token
+Token = RougeLines::Token
 
 Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each {|f|
   require f

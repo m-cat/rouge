@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::AppleScript do
-  let(:subject) { Rouge::Lexers::AppleScript.new }
+describe RougeLines::Lexers::AppleScript do
+  let(:subject) { RougeLines::Lexers::AppleScript.new }
 
   describe 'guessing' do
     include Support::Guessing

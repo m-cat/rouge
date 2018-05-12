@@ -1,5 +1,5 @@
-describe Rouge::Lexers::GraphQL do
-  let(:subject) { Rouge::Lexers::GraphQL.new }
+describe RougeLines::Lexers::GraphQL do
+  let(:subject) { RougeLines::Lexers::GraphQL.new }
 
   describe 'guessing' do
     include Support::Guessing

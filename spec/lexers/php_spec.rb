@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::PHP do
-  let(:subject) { Rouge::Lexers::PHP.new }
+describe RougeLines::Lexers::PHP do
+  let(:subject) { RougeLines::Lexers::PHP.new }
 
   describe 'guessing' do
     include Support::Guessing

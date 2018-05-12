@@ -1,5 +1,5 @@
-describe Rouge::Lexers::CMake do
-  let(:subject) { Rouge::Lexers::CMake.new }
+describe RougeLines::Lexers::CMake do
+  let(:subject) { RougeLines::Lexers::CMake.new }
 
   describe 'guessing' do
     include Support::Guessing

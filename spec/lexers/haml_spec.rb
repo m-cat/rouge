@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Haml do
-  let(:subject) { Rouge::Lexers::Haml.new }
+describe RougeLines::Lexers::Haml do
+  let(:subject) { RougeLines::Lexers::Haml.new }
   include Support::Lexing
 
   it 'lexes custom filters' do
-    lexer = Rouge::Lexers::Haml.new(:filters => { :tex => 'tex' })
+    lexer = RougeLines::Lexers::Haml.new(:filters => { :tex => 'tex' })
 
     assert_has_token 'Comment', <<-tex, lexer
       :tex

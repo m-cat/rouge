@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Ceylon do
-  let(:subject) { Rouge::Lexers::Ceylon.new }
+describe RougeLines::Lexers::Ceylon do
+  let(:subject) { RougeLines::Lexers::Ceylon.new }
 
   describe 'guessing' do
     include Support::Guessing

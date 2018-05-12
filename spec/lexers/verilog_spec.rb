@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Verilog do
-  let(:subject) { Rouge::Lexers::Verilog.new }
+describe RougeLines::Lexers::Verilog do
+  let(:subject) { RougeLines::Lexers::Verilog.new }
 
   describe 'guessing' do
     include Support::Guessing

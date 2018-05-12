@@ -1,5 +1,5 @@
-describe Rouge::Lexers::Vue do
-  let(:subject) { Rouge::Lexers::Vue.new }
+describe RougeLines::Lexers::Vue do
+  let(:subject) { RougeLines::Lexers::Vue.new }
 
   describe 'guessing' do
     include Support::Guessing

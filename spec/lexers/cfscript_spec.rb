@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Cfscript do
-  let(:subject) { Rouge::Lexers::Cfscript.new }
+describe RougeLines::Lexers::Cfscript do
+  let(:subject) { RougeLines::Lexers::Cfscript.new }
 
   describe 'guessing' do
     include Support::Guessing

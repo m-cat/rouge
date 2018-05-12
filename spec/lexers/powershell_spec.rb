@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Powershell do
-  let(:subject) { Rouge::Lexers::Powershell.new }
+describe RougeLines::Lexers::Powershell do
+  let(:subject) { RougeLines::Lexers::Powershell.new }
   
   # Someone may need to add actual tests here. TODO
 

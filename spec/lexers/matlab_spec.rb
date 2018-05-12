@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Matlab do
-  let(:subject) { Rouge::Lexers::Matlab.new }
+describe RougeLines::Lexers::Matlab do
+  let(:subject) { RougeLines::Lexers::Matlab.new }
 
   describe 'guessing' do
     include Support::Guessing

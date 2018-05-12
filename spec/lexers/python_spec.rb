@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Python do
-  let(:subject) { Rouge::Lexers::Python.new }
+describe RougeLines::Lexers::Python do
+  let(:subject) { RougeLines::Lexers::Python.new }
 
   describe 'guessing' do
     include Support::Guessing

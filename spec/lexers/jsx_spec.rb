@@ -1,5 +1,5 @@
-describe Rouge::Lexers::JSX do
-  let(:subject) { Rouge::Lexers::JSX.new }
+describe RougeLines::Lexers::JSX do
+  let(:subject) { RougeLines::Lexers::JSX.new }
 
   describe 'guessing' do
     include Support::Guessing

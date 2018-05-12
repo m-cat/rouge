@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers do
+describe RougeLines::Lexers do
   spec_dir = Pathname.new(__FILE__).dirname
   samples_dir = spec_dir.join('visual/samples')
 
-  Rouge::Lexer.all.each do |lexer_class|
+  RougeLines::Lexer.all.each do |lexer_class|
     describe lexer_class do
       include Support::Lexing
 

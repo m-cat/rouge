@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Formatters::Null do
-  let(:subject) { Rouge::Formatters::Null.new }
+describe RougeLines::Formatters::Null do
+  let(:subject) { RougeLines::Formatters::Null.new }
 
   it 'renders nothing' do
     result = subject.format([[Token['Name.Constant'], 'foo']])

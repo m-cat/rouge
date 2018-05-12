@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Elm do
-  let(:subject) { Rouge::Lexers::Elm.new }
+describe RougeLines::Lexers::Elm do
+  let(:subject) { RougeLines::Lexers::Elm.new }
 
   describe 'guessing' do
     include Support::Guessing

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Prolog do
-  let(:subject) { Rouge::Lexers::Prolog.new }
+describe RougeLines::Lexers::Prolog do
+  let(:subject) { RougeLines::Lexers::Prolog.new }
 
   describe 'guessing' do
     include Support::Guessing

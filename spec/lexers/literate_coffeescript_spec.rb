@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::LiterateCoffeescript do
-  let(:subject) { Rouge::Lexers::LiterateCoffeescript.new }
+describe RougeLines::Lexers::LiterateCoffeescript do
+  let(:subject) { RougeLines::Lexers::LiterateCoffeescript.new }
 
   describe 'guessing' do
     include Support::Guessing

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::VimL do
-  let(:subject) { Rouge::Lexers::VimL.new }
+describe RougeLines::Lexers::VimL do
+  let(:subject) { RougeLines::Lexers::VimL.new }
 
   describe 'mapping binary search' do
     let(:mapping) {

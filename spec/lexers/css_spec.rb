@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::CSS do
-  let(:subject) { Rouge::Lexers::CSS.new }
+describe RougeLines::Lexers::CSS do
+  let(:subject) { RougeLines::Lexers::CSS.new }
 
   describe 'guessing' do
     include Support::Guessing

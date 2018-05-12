@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::OCaml do
-  let(:subject) { Rouge::Lexers::OCaml.new }
+describe RougeLines::Lexers::OCaml do
+  let(:subject) { RougeLines::Lexers::OCaml.new }
 
   describe 'guessing' do
     include Support::Guessing

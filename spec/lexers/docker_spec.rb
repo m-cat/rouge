@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Docker do
-  let(:subject) { Rouge::Lexers::Docker.new }
+describe RougeLines::Lexers::Docker do
+  let(:subject) { RougeLines::Lexers::Docker.new }
 
   describe 'guessing' do
     include Support::Guessing

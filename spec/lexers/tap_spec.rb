@@ -1,5 +1,5 @@
-describe Rouge::Lexers::Tap do
-  let(:subject) { Rouge::Lexers::Tap.new }
+describe RougeLines::Lexers::Tap do
+  let(:subject) { RougeLines::Lexers::Tap.new }
 
   describe 'guessing' do
     include Support::Guessing

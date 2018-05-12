@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Formatters::HTMLLinewise do
-  let(:subject) { Rouge::Formatters::HTMLLinewise.new(formatter, options) }
-  let(:formatter) { Rouge::Formatters::HTML.new }
+describe RougeLines::Formatters::HTMLLinewise do
+  let(:subject) { RougeLines::Formatters::HTMLLinewise.new(formatter, options) }
+  let(:formatter) { RougeLines::Formatters::HTML.new }
 
   let(:options) { {} }
   let(:output) { subject.format(input_stream) }

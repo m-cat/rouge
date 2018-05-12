@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Formatters::HTML do
-  let(:subject) { Rouge::Formatters::HTMLLegacy.new(options) }
+describe RougeLines::Formatters::HTML do
+  let(:subject) { RougeLines::Formatters::HTMLLegacy.new(options) }
   let(:options) { {} }
 
   describe 'skipping the wrapper' do
-    let(:subject) { Rouge::Formatters::HTML.new }
+    let(:subject) { RougeLines::Formatters::HTML.new }
     let(:output) { subject.format([[Token['Name'], 'foo']]) }
     let(:options) { { :wrap => false } }
 
@@ -15,7 +15,7 @@ describe Rouge::Formatters::HTML do
   end
 
   describe '#inline_theme' do
-    class InlineTheme < Rouge::CSSTheme
+    class InlineTheme < RougeLines::CSSTheme
       style Name, :bold => true
     end
 
@@ -33,7 +33,7 @@ describe Rouge::Formatters::HTML do
   describe 'tableized line numbers' do
     let(:options) { { :line_numbers => true } }
 
-    let(:tokens) { Rouge::Lexers::Clojure.lex(text) }
+    let(:tokens) { RougeLines::Lexers::Clojure.lex(text) }
 
     let(:output) { subject.format(tokens) }
     let(:line_numbers) { output[%r[<pre class="lineno".*?</pre>]m].scan(/\d+/m).size }
@@ -46,7 +46,7 @@ describe Rouge::Formatters::HTML do
     let(:code_lines) { output_code.scan(/\n/).size }
 
     describe 'newline-terminated text' do
-      let(:text) { Rouge::Lexers::Clojure.demo }
+      let(:text) { RougeLines::Lexers::Clojure.demo }
 
       it 'preserves the number of lines' do
         assert { code_lines == line_numbers }
@@ -54,7 +54,7 @@ describe Rouge::Formatters::HTML do
     end
 
     describe 'non-newline-terminated text' do
-      let(:text) { Rouge::Lexers::Clojure.demo.chomp }
+      let(:text) { RougeLines::Lexers::Clojure.demo.chomp }
 
       it 'preserves the number of lines' do
         assert { code_lines == line_numbers }

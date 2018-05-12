@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Shell do
-  let(:subject) { Rouge::Lexers::Shell.new }
+describe RougeLines::Lexers::Shell do
+  let(:subject) { RougeLines::Lexers::Shell.new }
 
   include Support::Lexing
   it 'parses a basic shell string' do

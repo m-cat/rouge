@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Fortran do
-  let(:subject) { Rouge::Lexers::Fortran.new }
+describe RougeLines::Lexers::Fortran do
+  let(:subject) { RougeLines::Lexers::Fortran.new }
 
   include Support::Lexing
 

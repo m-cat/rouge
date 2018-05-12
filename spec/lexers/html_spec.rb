@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::HTML do
-  let(:subject) { Rouge::Lexers::HTML.new }
+describe RougeLines::Lexers::HTML do
+  let(:subject) { RougeLines::Lexers::HTML.new }
   include Support::Lexing
 
   it 'lexes embedded script tags' do

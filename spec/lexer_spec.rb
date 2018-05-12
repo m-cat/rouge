@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexer do
+describe RougeLines::Lexer do
   include Support::Lexing
 
   it 'guesses the lexer with Lexer.guess' do
-    assert { Rouge::Lexer.guess(filename: 'foo.rb').tag == 'ruby' }
+    assert { RougeLines::Lexer.guess(filename: 'foo.rb').tag == 'ruby' }
   end
 
   it 'guesses lexers with Lexer.guesses' do
-    assert { Rouge::Lexer.guesses(filename: 'foo.pl').map { |c| c.tag }.sort == ['perl', 'prolog'].sort }
+    assert { RougeLines::Lexer.guesses(filename: 'foo.pl').map { |c| c.tag }.sort == ['perl', 'prolog'].sort }
   end
 
   it 'raises errors in .guess by default' do
-    assert { (Rouge::Lexer.guess(filename: 'foo.pl') rescue nil) == nil }
+    assert { (RougeLines::Lexer.guess(filename: 'foo.pl') rescue nil) == nil }
   end
 
   it 'customizes ambiguous cases in .guess' do
-    assert { Rouge::Lexer.guess(filename: 'foo.pl') { :fallback } == :fallback }
+    assert { RougeLines::Lexer.guess(filename: 'foo.pl') { :fallback } == :fallback }
   end
 
   it 'makes a simple lexer' do
-    a_lexer = Class.new(Rouge::RegexLexer) do
+    a_lexer = Class.new(RougeLines::RegexLexer) do
       state :root do
         rule /a/, 'A'
         rule /b/, 'B'
@@ -38,7 +38,7 @@ describe Rouge::Lexer do
   end
 
   it 'pushes and pops states' do
-    a_lexer = Class.new(Rouge::RegexLexer) do
+    a_lexer = Class.new(RougeLines::RegexLexer) do
       state :brace do
         rule /b/, 'B'
         rule /}/, 'Brace', :pop!
@@ -55,7 +55,7 @@ describe Rouge::Lexer do
 
     # failed parses
 
-    t = Rouge::Token
+    t = RougeLines::Token
     assert {
       a_lexer.lex('{a}').to_a ==
         [['Brace', '{'], [t['Error'], 'a'], ['Brace', '}']]
@@ -66,7 +66,7 @@ describe Rouge::Lexer do
   end
 
   it 'does callbacks and grouping' do
-    callback_lexer = Class.new(Rouge::RegexLexer) do
+    callback_lexer = Class.new(RougeLines::RegexLexer) do
       state :root do
         rule /(a)(b)/ do |s|
           groups('A', 'B')
@@ -82,7 +82,7 @@ describe Rouge::Lexer do
   end
 
   it 'pops from the callback' do
-    callback_lexer = Class.new(Rouge::RegexLexer) do
+    callback_lexer = Class.new(RougeLines::RegexLexer) do
       state :root do
         rule /a/, 'A', :a
         rule /d/, 'D'
@@ -104,7 +104,7 @@ describe Rouge::Lexer do
   end
 
   it 'supports stateful lexes' do
-    stateful = Class.new(Rouge::RegexLexer) do
+    stateful = Class.new(RougeLines::RegexLexer) do
       def incr
         @count += 1
       end
@@ -128,7 +128,7 @@ describe Rouge::Lexer do
   end
 
   it 'delegates' do
-    class MasterLexer < Rouge::RegexLexer
+    class MasterLexer < RougeLines::RegexLexer
       state :root do
         rule /a/, 'A'
         rule /{(.*?)}/ do |m|
@@ -139,7 +139,7 @@ describe Rouge::Lexer do
       end
     end
 
-    class BracesLexer < Rouge::RegexLexer
+    class BracesLexer < RougeLines::RegexLexer
       state :root do
         rule /b/, 'B'
       end
@@ -149,7 +149,7 @@ describe Rouge::Lexer do
   end
 
   it 'detects the beginnings of lines with ^ rules' do
-    class MyLexer < Rouge::RegexLexer
+    class MyLexer < RougeLines::RegexLexer
       state :root do
         rule /^a/, 'start'
         rule /a/, 'not-start'

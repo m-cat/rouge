@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Gherkin do
-  let(:subject) { Rouge::Lexers::Gherkin.new }
+describe RougeLines::Lexers::Gherkin do
+  let(:subject) { RougeLines::Lexers::Gherkin.new }
 
   describe 'guessing' do
     include Support::Guessing

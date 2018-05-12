@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::SQL do
-  let(:subject) { Rouge::Lexers::SQL.new }
+describe RougeLines::Lexers::SQL do
+  let(:subject) { RougeLines::Lexers::SQL.new }
 
   describe 'guessing' do
     include Support::Guessing

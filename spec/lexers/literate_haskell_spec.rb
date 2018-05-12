@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::LiterateHaskell do
-  let(:subject) { Rouge::Lexers::LiterateHaskell.new }
+describe RougeLines::Lexers::LiterateHaskell do
+  let(:subject) { RougeLines::Lexers::LiterateHaskell.new }
 
   describe 'guessing' do
     include Support::Guessing

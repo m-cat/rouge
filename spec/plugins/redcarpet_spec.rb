@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*- #
 
 require 'rouge/plugins/redcarpet'
-describe Rouge::Plugins::Redcarpet do
+describe RougeLines::Plugins::Redcarpet do
   # skip if redcarpet isn't loaded
   next unless Object.const_defined? :Redcarpet
 
   let(:redcarpet) {
     Class.new(Redcarpet::Render::HTML) do
-      include Rouge::Plugins::Redcarpet
+      include RougeLines::Plugins::Redcarpet
     end
   }
 

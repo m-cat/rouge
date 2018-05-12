@@ -1,5 +1,5 @@
-describe Rouge::Lexers::Plist do
-  let(:subject) { Rouge::Lexers::Plist.new }
+describe RougeLines::Lexers::Plist do
+  let(:subject) { RougeLines::Lexers::Plist.new }
 
   describe 'guessing' do
     include Support::Guessing

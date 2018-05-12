@@ -1,15 +1,15 @@
 desc "Creates all necessary files for a new lexer"
 task :lex, [:language] do |t, args|
   language = args.language
-  sh "touch lib/rouge/demos/#{language}"
+  sh "touch lib/rouge-lines/demos/#{language}"
   sh "touch spec/visual/samples/#{language}"
-  sh "echo \"#{lexer_template(language)}\" > lib/rouge/lexers/#{language}.rb"
+  sh "echo \"#{lexer_template(language)}\" > lib/rouge-lines/lexers/#{language}.rb"
   sh "echo \"#{spec_template(language)}\" > spec/lexers/#{language}_spec.rb"
 end
 
 def lexer_template(language)
   <<-LEX
-module Rouge
+module RougeLines
   module Lexers
     class #{language.capitalize} < RegexLexer
       desc '#{language}'
@@ -37,8 +37,8 @@ end
 
 def spec_template(language)
   <<-SPEC
-describe Rouge::Lexers::#{language.capitalize} do
-  let(:subject) { Rouge::Lexers::#{language.capitalize}.new }
+describe RougeLines::Lexers::#{language.capitalize} do
+  let(:subject) { RougeLines::Lexers::#{language.capitalize}.new }
 
   describe 'guessing' do
     include Support::Guessing

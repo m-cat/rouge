@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::Moonscript do
-  let(:subject) { Rouge::Lexers::Moonscript.new }
+describe RougeLines::Lexers::Moonscript do
+  let(:subject) { RougeLines::Lexers::Moonscript.new }
 
   describe 'guessing' do
     include Support::Guessing

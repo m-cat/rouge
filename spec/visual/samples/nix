@@ -231,7 +231,7 @@ stdenv.mkDerivation { # 2
     # 3: Indented string
     description = '' # part of the string
     A contrived example of a Nix expression, suitable for testing the lexer for
-    Rouge.
+    RougeLines.
     '';
   };
   builder = ./builder.sh; # 4

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::BIML do
-  let(:subject) { Rouge::Lexers::BIML.new }
+describe RougeLines::Lexers::BIML do
+  let(:subject) { RougeLines::Lexers::BIML.new }
 
   describe 'guessing' do
     include Support::Guessing

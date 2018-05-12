@@ -12,12 +12,12 @@ class VisualTestApp < Sinatra::Application
   SAMPLES = BASE.join('samples')
   ROOT = BASE.parent.parent
 
-  ROUGE_LIB = ROOT.join('lib/rouge.rb')
+  ROUGE_LIB = ROOT.join('lib/rouge-lines.rb')
 
-  DEMOS = ROOT.join('lib/rouge/demos')
+  DEMOS = ROOT.join('lib/rouge-lines/demos')
 
   def reload_source!
-    Object.send :remove_const, :Rouge
+    Object.send :remove_const, :RougeLines
     load ROUGE_LIB
   end
 
@@ -33,25 +33,25 @@ class VisualTestApp < Sinatra::Application
   before do
     reload_source!
 
-    Rouge::Lexer.enable_debug!
+    RougeLines::Lexer.enable_debug!
 
-    theme_class = Rouge::Theme.find(params[:theme] || 'thankful_eyes')
+    theme_class = RougeLines::Theme.find(params[:theme] || 'thankful_eyes')
     halt 404 unless theme_class
     @theme = theme_class.new(scope: '.codehilite')
 
     formatter_opts = { :line_numbers => params[:line_numbers] }
     formatter_opts[:inline_theme] = @theme if params[:inline]
 
-    @formatter = Rouge::Formatters::HTMLLegacy.new(formatter_opts)
+    @formatter = RougeLines::Formatters::HTMLLegacy.new(formatter_opts)
   end
 
   get '/:lexer' do |lexer_name|
-    @lexer = Rouge::Lexer.find_fancy("#{lexer_name}?#{query_string}")
+    @lexer = RougeLines::Lexer.find_fancy("#{lexer_name}?#{query_string}")
     halt 404 unless @lexer
     @sample = File.read(SAMPLES.join(@lexer.class.tag), encoding: 'utf-8')
 
     @title = "#{@lexer.class.tag} | Visual Test"
-    @highlighted = Rouge.highlight(@sample, @lexer, @formatter)
+    @highlighted = RougeLines.highlight(@sample, @lexer, @formatter)
 
     erb :lexer
   end
@@ -59,7 +59,7 @@ class VisualTestApp < Sinatra::Application
 
   get '/' do
     @samples = DEMOS.entries.sort.reject { |s| s.basename.to_s =~ /^\.|~$/ }
-    @samples.map!(&Rouge::Lexer.method(:find))
+    @samples.map!(&RougeLines::Lexer.method(:find))
 
     erb :index
   end

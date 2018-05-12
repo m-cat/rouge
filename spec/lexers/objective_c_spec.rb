@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::ObjectiveC do
-  let(:subject) { Rouge::Lexers::ObjectiveC.new }
+describe RougeLines::Lexers::ObjectiveC do
+  let(:subject) { RougeLines::Lexers::ObjectiveC.new }
 
   describe 'guessing' do
     include Support::Guessing

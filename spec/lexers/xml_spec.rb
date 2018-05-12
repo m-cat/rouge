@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #
 
-describe Rouge::Lexers::XML do
-  let(:subject) { Rouge::Lexers::XML.new }
+describe RougeLines::Lexers::XML do
+  let(:subject) { RougeLines::Lexers::XML.new }
   let(:bom) { "\xEF\xBB\xBF" }
 
   describe 'guessing' do

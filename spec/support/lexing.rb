@@ -14,7 +14,7 @@ module Support
 
     def same_token?(token, target)
       if token.respond_to? :token_chain
-        token.token_chain.include?(Rouge::Token[target])
+        token.token_chain.include?(RougeLines::Token[target])
       else
         token == target
       end
@@ -33,7 +33,7 @@ module Support
     end
 
     def assert_tokens_equal(text, *expected)
-      if expected.first.is_a? Rouge::Lexer
+      if expected.first.is_a? RougeLines::Lexer
         lexer = expected.shift
       else
         lexer = subject
